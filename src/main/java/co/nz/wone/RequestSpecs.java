@@ -27,7 +27,6 @@ public class RequestSpecs {
      * Cookie cookie2 = Cookie.Builder("token", 1234).setComment("comment 2").build();
      * Cookies cookies = new Cookies(cookie1, cookie2);
      * </pre>
-     * <p/>
      * This will send a GET request to "/cookie" with two cookies:
      * <ol>
      * <li>username=John</li>
@@ -71,6 +70,23 @@ public class RequestSpecs {
     }
 
     /**
+     * Specify multiple path parameter name-value pairs.
+     * <p>
+     * Example of use:
+     * <pre>
+     * $.templateParams();
+     * </pre>
+     *
+     * @param pathParamMap A map containing the path parameters.
+     *
+     * @return The request specification
+     */
+    public RequestSpecs templateParam(String paramName, Object paramValues) {
+        requestSpecification.pathParam(paramName, paramValues);
+        return this;
+    }
+
+    /**
      * Specify a String request body (such as e.g. JSON or XML) that'll be sent with the request. This works for the
      * POST and PUT methods only.
      * <p>
@@ -79,7 +95,6 @@ public class RequestSpecs {
      * $.body("{ \"message\" : \"hello world\"}")
      * </pre>
      * This will send a request containing JSON to "/json" and expect that the response body equals to "hello world".
-     * </p>
      *
      * @param payload The body to send.
      * @return The request specification
@@ -97,7 +112,6 @@ public class RequestSpecs {
      * Headers headers = new Header(first, second);
      * $.headers(headers);
      * </pre>
-     * <p/>
      * This will send a headerName1 and headerName2 along with the request.
      * <ol>
      * <li>headerName1=headerValue1</li>
@@ -121,7 +135,6 @@ public class RequestSpecs {
      * parameters.put("headerName2", "headerValue2");
      * $.headers(headers);
      * </pre>
-     * <p/>
      * This will send a headerName1 and headerName2 along with the request.
      * <ol>
      * <li>headerName1=headerValue1</li>

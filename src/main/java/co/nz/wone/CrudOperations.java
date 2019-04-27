@@ -47,6 +47,7 @@ public class CrudOperations {
     /**
      * Specify the url for the service to which request needs to be sent.
      *
+     * @param url for service to be tested.
      * @return The instance of Request Specs class.
      */
     public RequestSpecs usingURL(String url) {

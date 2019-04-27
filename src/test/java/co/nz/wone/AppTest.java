@@ -43,9 +43,6 @@ public class AppTest
         assertTrue( true );
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
     public void testApp2()
     {
         RestAssured.baseURI = "https://api.trademe.co.nz/v1/";

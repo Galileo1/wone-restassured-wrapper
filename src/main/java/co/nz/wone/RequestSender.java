@@ -16,7 +16,7 @@ public class RequestSender {
 
     /**
      * Send the requests.
-     * @return
+     * @return The Response from service.
      */
     public Response send() {
         LOGGER.debug("======= [START Request] {} ===========");
