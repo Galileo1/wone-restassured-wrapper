@@ -5,10 +5,7 @@ import io.restassured.specification.RequestSpecification;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
-
-@Component
 @AllArgsConstructor
 public class RequestSender {
 

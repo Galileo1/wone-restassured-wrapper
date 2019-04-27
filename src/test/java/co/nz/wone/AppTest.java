@@ -6,8 +6,7 @@ import io.restassured.specification.RequestSpecification;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.hamcrest.beans.HasProperty;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import java.util.HashMap;
 import java.util.Map;

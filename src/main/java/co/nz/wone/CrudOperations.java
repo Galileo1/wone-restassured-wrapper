@@ -1,8 +1,5 @@
 package co.nz.wone;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class CrudOperations {
 
     private CrudEnum crudEnum;

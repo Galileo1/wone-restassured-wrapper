@@ -7,14 +7,12 @@ import io.restassured.http.Headers;
 import io.restassured.specification.RequestSpecification;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.function.Consumer;
 
 import static io.restassured.RestAssured.given;
 
-@Component
 @RequiredArgsConstructor
 public class RequestSpecs {
 
