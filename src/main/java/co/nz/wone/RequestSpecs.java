@@ -70,15 +70,15 @@ public class RequestSpecs {
     }
 
     /**
-     * Specify multiple path parameter name-value pairs.
+     * Specify path parameter with single or multiple object type value.
      * <p>
      * Example of use:
      * <pre>
      * $.templateParams();
      * </pre>
      *
-     * @param pathParamMap A map containing the path parameters.
-     *
+     * @param paramName A string containing the path parameter name.
+     * @param paramValues A Object type containing the path parameter values.
      * @return The request specification
      */
     public RequestSpecs templateParam(String paramName, Object paramValues) {
@@ -151,9 +151,10 @@ public class RequestSpecs {
     }
 
     /**
-     * Helps construct the request specifications.
-     * @param builderFunction
+     * Helps construct the request specifications using builder pattern.
+     * @param builderFunction An Object of type RequestSpecs
      * @return The instance of Request Sender class
+     * @see <a href="https://medium.com/beingprofessional/think-functional-advanced-builder-pattern-using-lambda-284714b85ed5">Advanced builder pattern using lambda</a>
      */
     public RequestSender with(Consumer<RequestSpecs> builderFunction) {
         builderFunction.accept(this);
