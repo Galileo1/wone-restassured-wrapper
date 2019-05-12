@@ -1,6 +1,6 @@
 package co.nz.wone;
 
-import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.*;
 import io.restassured.http.ContentType;
 import io.restassured.http.Cookies;
 import io.restassured.http.Headers;
@@ -18,7 +18,7 @@ public class RequestSpecs {
 
     private final String url;
     private final CrudEnum crudEnum;
-    private RequestSpecification requestSpecification = given().contentType(ContentType.JSON).filter(new RequestLoggingFilter());
+    private RequestSpecification requestSpecification = given().filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
 
     /**
      * Specify the cookies that'll be sent with the request as {@link Cookies}:

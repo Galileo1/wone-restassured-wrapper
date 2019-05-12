@@ -1,14 +1,15 @@
 package co.nz.wone;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import co.nz.wone.model.*;
 
-
-import java.util.HashMap;
-import java.util.Map;
+import static co.nz.wone.JsonNodeBuilders.array;
+import static co.nz.wone.JsonNodeBuilders.object;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import java.util.*;
 
 /**
  * Unit test for simple App.
@@ -37,21 +38,35 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
+    public void testJsonNodeModifier()
     {
-        assertTrue( true );
+        CreateUser c = new JsonNodeModifiers<>(new CreateUser()).with($-> {
+            $.setUserName("username");
+            $.setCustCRSNo("12326446");
+        }).modify();
+
+        assertTrue( c.getUserName().equalsIgnoreCase("username") );
+        assertTrue( c.getCustCRSNo().equalsIgnoreCase("12326446") );
     }
 
-    public void testApp2()
+    public void testJsonNodeBuilder()
     {
-        RestAssured.baseURI = "https://api.trademe.co.nz/v1/";
-        RestAssured.basePath = "Categories/{number}.json";
-
-        Map<String, String> catId = new HashMap<>();
-        catId.put("number", "0001");
-        Response resp = new CrudOperations().get().usingURL(RestAssured.baseURI + RestAssured.basePath)
-                .with($->  $.templateParams(catId) ).send();
-
-        assertEquals(200, resp.getStatusCode());
+       Object jsonObject = object("username", "varun").with("address", array(object("street", "tory st", "pin", "6011"))).end();
+       String jsonString = object("username", "varun").with("address", array(object("street", "tory st", "pin", "6011"))).end().toString();
+       assertTrue( jsonObject.toString().equalsIgnoreCase(jsonString));
     }
+
+//    public void testApp2()
+//    {
+//        RestAssured.baseURI = "https://api.trademe.co.nz/v1/";
+//        RestAssured.basePath = "Categories/{number}.json";
+//
+//        Map<String, String> catId = new HashMap<>();
+//        catId.put("number", "0001");
+//        Response resp = new CrudOperations().get().usingURL(RestAssured.baseURI + RestAssured.basePath)
+//                .with($->  $.templateParams(catId) ).send();
+//
+//        assertEquals(200, resp.getStatusCode());
+//    }
+
 }
