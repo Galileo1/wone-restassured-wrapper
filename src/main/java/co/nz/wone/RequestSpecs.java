@@ -1,7 +1,6 @@
 package co.nz.wone;
 
 import io.restassured.filter.log.*;
-import io.restassured.http.ContentType;
 import io.restassured.http.Cookies;
 import io.restassured.http.Headers;
 import io.restassured.specification.RequestSpecification;

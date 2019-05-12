@@ -1,7 +1,10 @@
-package co.nz.wone;
+package co.nz.wone.jsonutils;
 
 import java.util.function.Consumer;
 
+/**
+ * Json node modifier class to update a json structure
+ */
 public class JsonNodeModifiers<T> {
 
     final private T object;

@@ -1,4 +1,4 @@
-package co.nz.wone;
+package co.nz.wone.jsonutils;
 
 import static lombok.AccessLevel.PRIVATE;
 

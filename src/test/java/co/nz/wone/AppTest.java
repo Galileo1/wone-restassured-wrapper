@@ -5,11 +5,8 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import co.nz.wone.model.*;
 
-import static co.nz.wone.JsonNodeBuilders.array;
-import static co.nz.wone.JsonNodeBuilders.object;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import java.util.*;
+import static co.nz.wone.jsonutils.JsonNodeBuilders.array;
+import static co.nz.wone.jsonutils.JsonNodeBuilders.object;
 
 /**
  * Unit test for simple App.
@@ -40,7 +37,7 @@ public class AppTest
      */
     public void testJsonNodeModifier()
     {
-        CreateUser c = new JsonNodeModifiers<>(new CreateUser()).with($-> {
+        CreateUser c = new co.nz.wone.jsonutils.JsonNodeModifiers<>(new CreateUser()).with($-> {
             $.setUserName("username");
             $.setCustCRSNo("12326446");
         }).modify();
