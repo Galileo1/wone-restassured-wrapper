@@ -4,7 +4,7 @@
   <groupId>co.nz.wone</groupId>
   <artifactId>wone-restassured-wrapper</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.2</version>
+  <version>0.1.3</version>
   <name>wone-restassured-wrapper</name>
   <url>http://maven.apache.org</url>
   <properties>
