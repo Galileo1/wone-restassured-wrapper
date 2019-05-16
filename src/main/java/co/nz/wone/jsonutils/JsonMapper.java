@@ -3,6 +3,7 @@ package co.nz.wone.jsonutils;
 import java.io.File;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NoArgsConstructor;
+import io.restassured.response.ResponseBody;
 
 @NoArgsConstructor
 public class JsonMapper {
@@ -56,6 +57,24 @@ public class JsonMapper {
         T object = null;
         try {
             object = mapper.readValue(jsonString, clazz);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return object;
+    }
+
+    /**
+     * Converts json response body into json object.
+     * @param jsonResponseBody the response from rest service
+     * @param clazz the class to map response to
+     * @param <T> the generic type
+     * @return the json object
+     */
+    public <T> T responseToJsonObject(ResponseBody jsonResponseBody, Class<T> clazz) {
+        T object = null;
+        try {
+            object = mapper.readValue(jsonResponseBody.asInputStream(),clazz);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.responseSpecification;
 
 @RequiredArgsConstructor
 public class RequestSpecs {
@@ -100,6 +101,26 @@ public class RequestSpecs {
      */
     public RequestSpecs body(String payload) {
         requestSpecification.body(payload);
+        return this;
+    }
+
+    /**
+     * Specify the header that'll be sent with the request, e.g:
+     * <pre>
+     * $.header(key, value);
+     * </pre>
+     * This will send a headerName1 along with the request.
+     * <ol>
+     * <li>headerName1=headerValue1</li>
+     * </ol>
+     * and expect that the response body is equal to "something".
+     *
+     * @param key The key to be used as header in the request
+     * @param value The value to be used as header in the request
+     * @return The request specification
+     */
+    public RequestSpecs header(String key, Object value) {
+        requestSpecification.header(key,value);
         return this;
     }
 
